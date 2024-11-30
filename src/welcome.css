@@ -1,0 +1,450 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.welcome-container {
+    min-height: 100vh;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Общие стили для изображений */
+.welcome-image,
+.code-image {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    object-fit: contain;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Эффект при наведении на изображения */
+.welcome-image:hover,
+.code-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Добавляем псевдоэлемент для сияющей обводки */
+.welcome-image::before,
+.code-image::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(
+        45deg,
+        rgba(192,192,192,0.8),
+        rgba(255,255,255,1),
+        rgba(192,192,192,0.8)
+    );
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s ease;
+    filter: blur(3px);
+}
+
+.welcome-image:hover::before,
+.code-image:hover::before {
+    opacity: 1;
+    animation: borderGlow 1.5s infinite alternate;
+}
+
+/* Добавляем анимацию сияния */
+@keyframes borderGlow {
+    from {
+        filter: blur(3px);
+        opacity: 0.5;
+    }
+    to {
+        filter: blur(4px);
+        opacity: 0.8;
+    }
+}
+
+/* Верхняя секция */
+.top-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    animation: fadeIn 0.5s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.welcome-image {
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+    animation-delay: 1s; /* Начинаем после появления страницы */
+    margin-left: 200px;
+}
+
+/* Нижняя секция */
+.bottom-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    animation: slideInBottom 0.8s ease-out forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    width: 100%;
+}
+
+.text-block.full-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skills-column {
+    padding: 20px;
+    background: rgba(67, 160, 71, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skills-column:hover {
+    transform: translateY(-5px);
+    background: rgba(67, 160, 71, 0.1);
+}
+
+.skills-column strong {
+    color: #43A047;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(67, 160, 71, 0.3);
+    padding-bottom: 8px;
+}
+
+.skills-column span {
+    display: block;
+    padding: 8px 15px;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    line-height: 1.5;
+    transition: background-color 0.2s ease;
+}
+
+.skills-column span:hover {
+    background: rgba(67, 160, 71, 0.1);
+    border-radius: 5px;
+}
+
+.text-block {
+    max-width: 600px;
+}
+
+.text-block h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #43A047, #1B5E20);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.text-block h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #43A047;
+    margin-right: 100px;
+}
+
+.text-block p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+    white-space: normal;
+    margin-bottom: 15px;
+}
+
+.text-block p strong {
+    color: #43A047;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.text-block p span {
+    display: block;
+    padding-left: 20px;
+}
+
+.text-block p span + span {
+    margin-top: 8px;
+}
+
+.text-block.right {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.text-block.left {
+    margin-left: 200px;
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+.animated-text {
+    margin-bottom: 20px;
+}
+
+.continue-button {
+    background-color: #43A047;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    color: #121212;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.continue-button:hover {
+    background-color: #1B5E20;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 160, 71, 0.4);
+}
+
+.continue-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(67, 160, 71, 0.3);
+}
+
+.continue-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.continue-button:hover::before {
+    left: 100%;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Стили для кастомного курсора */
+.cursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #43A047, #1B5E20);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+    transform: translate(-50%, -50%);
+    animation: cursorGlow 2s infinite alternate;
+}
+
+@keyframes cursorGlow {
+    from {
+        filter: blur(0px);
+        opacity: 0.8;
+    }
+    to {
+        filter: blur(1px);
+        opacity: 1;
+    }
+}
+
+/* Эффект увеличения курсора при наведении на кликабельные элементы */
+.cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Заменяем глобальное скрытие курсора на скрытие только внутри welcome-container */
+.welcome-container, 
+.welcome-container * {
+    cursor: none !important;
+}
+
+/* Удаляем глобальные стили курсора */
+/* Удаляем старые правила:
+* {
+    cursor: none !important;
+}
+
+button, 
+a, 
+input, 
+select, 
+textarea,
+img {
+    cursor: none !important;
+}
+*/
+
+.typing {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    animation: blink 0.7s infinite;
+    color: #43A047;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Анимация исчезновения */
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Стили для анимации перехода */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #43A047, #1B5E20);
+    z-index: 9999;
+    animation: transitionIn 1.5s cubic-bezier(0.7, 0, 0.3, 1);
+    transform-origin: left;
+}
+
+.page-transition.transition-out {
+    animation: transitionOut 1s cubic-bezier(0.7, 0, 0.3, 1);
+    transform-origin: right;
+}
+
+@keyframes transitionIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes transitionOut {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}

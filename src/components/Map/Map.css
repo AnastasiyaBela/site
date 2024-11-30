@@ -1,0 +1,28 @@
+.map-section {
+    padding: 2rem 0;
+    background-color: #f2efe6;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #f2efe6;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+        padding: 0 10px;
+    }
+} 

@@ -1,0 +1,307 @@
+/* Основные стили */
+:root {
+    --primary-color: #53945f;
+    --secondary-color: #1B5E20;
+    --background-color: #f2efe6;
+    --text-color: #333;
+    --text-color1: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Стили шапки */
+.main-header {
+    background-color: #53945f;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+.main-header nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-header nav a:hover {
+    color: var(--text-color1);
+}
+
+/* Секция героя */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 10%;
+    background-color: #f2efe6;
+    margin-top: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 4rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Секция услуг */
+.services-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 10%;
+    background-color: #f2efe6;
+}
+
+.service-card {
+    background-color: #e8e4d9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    background-color: #dfd9cc;
+}
+
+.service-card:active {
+    transform: translateY(0);
+    background-color: #d6d0c3;
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Секция FAQ */
+.faq-section {
+    padding: 4rem 10%;
+    background-color: #f2efe6;
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #e8e4d9;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+}
+
+.faq-item .dropdown-header {
+    padding: 1.5rem 2rem;
+    background-color: #e8e4d9;
+}
+
+.faq-item .dropdown-header h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: var(--text-color);
+}
+
+.faq-item .arrow {
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--text-color);
+}
+
+.faq-answer {
+    padding: 1rem 2rem;
+    background-color: #e8e4d9;
+}
+
+/* Обновляем стили для выпадающего контента в FAQ */
+.faq-item .dropdown-content {
+    background-color: #e8e4d9;
+}
+
+.faq-item .dropdown-content.open {
+    padding: 1rem 0;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        padding: 2rem 5%;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        padding-bottom: 2rem;
+    }
+
+    .main-header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .services-section {
+        padding: 2rem 5%;
+    }
+
+    .faq-section {
+        padding: 2rem 5%;
+    }
+    
+    .faq-item .dropdown-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .faq-answer {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Стили для выпадающих списков */
+.dropdown-section {
+    padding: 2rem 10%;
+    background-color: #f2efe6;
+}
+
+.dropdown-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dropdown-item {
+    margin-bottom: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #e8e4d9;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #e8e4d9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-header:hover {
+    background-color: #dfd9cc;
+}
+
+.dropdown-header h3 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #e8e4d9;
+}
+
+.dropdown-content.open {
+    max-height: 1000px; /* Достаточно большое значение для содержимого */
+}
+
+.dropdown-content ul {
+    list-style: none;
+    padding: 2rem;
+    margin: 0;
+}
+
+.dropdown-content li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.dropdown-content li:last-child {
+    margin-bottom: 0;
+}
+
+.contacts-section {
+    padding: 4rem 10% 2rem;
+    background-color: #53945f;
+    color: white;
+    text-align: center;
+}
+
+.developer-info {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.developer-info a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.developer-info a:hover {
+    color: white;
+    text-decoration: underline;
+}
+  
